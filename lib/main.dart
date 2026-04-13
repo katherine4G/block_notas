@@ -1,94 +1,57 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
-import 'dart:io';
-
-import 'package:path_provider/path_provider.dart';
+import 'pages/home_page.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
-      title: 'Reading and Writing Files',
-      home: FlutterDemo(storage: CounterStorage()),
-    ),
-  );
+  runApp(const BlocNotasApp());
 }
 
-class CounterStorage {
-  Future<String> get _localPath async {
-    final directory = await getApplicationDocumentsDirectory();
-
-    return directory.path;
-  }
-
-  Future<File> get _localFile async {
-    final path = await _localPath;
-    return File('$path/counter.txt');
-  }
-
-  Future<int> readCounter() async {
-    try {
-      final file = await _localFile;
-
-      // Read the file
-      final contents = await file.readAsString();
-
-      return int.parse(contents);
-    } catch (e) {
-      // If encountering an error, return 0
-      return 0;
-    }
-  }
-
-  Future<File> writeCounter(int counter) async {
-    final file = await _localFile;
-
-    // Write the file
-    return file.writeAsString('$counter');
-  }
-}
-
-class FlutterDemo extends StatefulWidget {
-  const FlutterDemo({super.key, required this.storage});
-
-  final CounterStorage storage;
-
-  @override
-  State<FlutterDemo> createState() => _FlutterDemoState();
-}
-
-class _FlutterDemoState extends State<FlutterDemo> {
-  int _counter = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    widget.storage.readCounter().then((value) {
-      setState(() {
-        _counter = value;
-      });
-    });
-  }
-
-  Future<File> _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-
-    // Write the variable as a string to the file.
-    return widget.storage.writeCounter(_counter);
-  }
+class BlocNotasApp extends StatelessWidget {
+  const BlocNotasApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Reading and Writing Files')),
-      body: Center(
-        child: Text('Button tapped $_counter time${_counter == 1 ? '' : 's'}.'),
+    return MaterialApp(
+      title: 'Bloc de Notas',
+      debugShowCheckedModeBanner: false,
+      theme: _buildTheme(Brightness.light),
+      darkTheme: _buildTheme(Brightness.dark),
+      themeMode: ThemeMode.system,
+      home: const HomePage(),
+    );
+  }
+
+  ThemeData _buildTheme(Brightness brightness) {
+    final isDark = brightness == Brightness.dark;
+
+    final colorScheme = ColorScheme.fromSeed(
+      seedColor: const Color(0xFF5B6EF5),
+      brightness: brightness,
+    );
+
+    return ThemeData(
+      useMaterial3: true,
+      colorScheme: colorScheme,
+      fontFamily: 'Roboto',
+      appBarTheme: AppBarTheme(
+        backgroundColor: isDark ? colorScheme.surface : colorScheme.surface,
+        foregroundColor: colorScheme.onSurface,
+        elevation: 0,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: colorScheme.primary,
+        foregroundColor: colorScheme.onPrimary,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      ),
+      cardTheme: CardThemeData(
+        elevation: 0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      ),
+      inputDecorationTheme: const InputDecorationTheme(
+        border: InputBorder.none,
+      ),
+      snackBarTheme: SnackBarThemeData(
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       ),
     );
   }
