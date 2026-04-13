@@ -1,16 +1,16 @@
-# 📓 Bloc de Notas
+#  Bloc de Notas
 
 > Aplicación móvil de bloc de notas offline desarrollada con Flutter, con almacenamiento persistente en archivos de texto plano.
 
 ---
 
-## 📌 Descripción
+##  Descripción
 
 **Bloc de Notas** es una aplicación multiplataforma construida con Flutter que permite al usuario crear, editar, buscar y eliminar notas de forma completamente offline. Las notas se persisten en el sistema de archivos del dispositivo como archivos `.txt`, sin necesidad de base de datos ni conexión a internet.
 
 ---
 
-## 🎯 Tema seleccionado
+##  Tema seleccionado
 
 **Tema 6 — Almacenamiento local y archivos**
 
@@ -25,7 +25,7 @@
 
 ---
 
-## 🎯 Objetivo
+##  Objetivo
 
 Desarrollar una aplicación funcional de toma de notas que demuestre el manejo de:
 
@@ -36,7 +36,7 @@ Desarrollar una aplicación funcional de toma de notas que demuestre el manejo d
 
 ---
 
-## 👥 Integrantes
+##  Integrantes
 
 | Nombre               |
 |----------------------|
@@ -45,7 +45,7 @@ Desarrollar una aplicación funcional de toma de notas que demuestre el manejo d
 
 ---
 
-## 🛠️ Tecnologías
+##  Tecnologías
 
 | Tecnología / Paquete  | Versión     | Uso                                              |
 |-----------------------|-------------|--------------------------------------------------|
@@ -58,7 +58,7 @@ Desarrollar una aplicación funcional de toma de notas que demuestre el manejo d
 
 ---
 
-## 🗂️ Estructura del proyecto
+##  Estructura del proyecto
 
 ```
 lib/
@@ -78,7 +78,7 @@ lib/
 
 ---
 
-## ⚙️ Arquitectura técnica
+## Arquitectura técnica
 
 ### Modelo (`Note`)
 Clase PODO que representa una nota. Contiene `id`, `title`, `content`, `createdAt` y `updatedAt`. La serialización usa texto plano con el delimitador `---`:
@@ -114,7 +114,7 @@ Operaciones disponibles:
 
 ---
 
-## 🚀 Ejecución
+##  Ejecución
 
 ### Prerrequisitos
 
@@ -149,7 +149,7 @@ flutter build windows --release
 
 ---
 
-## ✅ Funcionalidades
+##  Funcionalidades
 
 | # | Funcionalidad                     | Descripción                                                                 |
 |---|-----------------------------------|-----------------------------------------------------------------------------|
@@ -168,7 +168,7 @@ flutter build windows --release
 
 ---
 
-## 📸 Capturas de pantalla
+##  Capturas de pantalla
 
 ### Lista de notas — Pantalla principal
 Muestra el listado de notas almacenadas con el banner de estadísticas (5 notas · 8 palabras), barra de búsqueda, fecha relativa de cada nota y contador de palabras por tarjeta. El botón **+ Nueva nota** se encuentra en la esquina inferior derecha.
@@ -182,9 +182,5 @@ Pantalla de edición con el título de la nota, el contenido editable y la barra
 
 ![Editor de nota](screenshots/note_editor.jpg)
 
----
 
-## 📄 Licencia
-
-Proyecto académico — uso educativo.
 
