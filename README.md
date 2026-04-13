@@ -170,9 +170,17 @@ flutter build windows --release
 
 ## 📸 Capturas de pantalla
 
-| Pantalla principal (claro) | Pantalla principal (oscuro) | Editor de nota |
-|:--------------------------:|:---------------------------:|:--------------:|
-| *(agregar captura)*        | *(agregar captura)*         | *(agregar captura)* |
+### Lista de notas — Pantalla principal
+Muestra el listado de notas almacenadas con el banner de estadísticas (5 notas · 8 palabras), barra de búsqueda, fecha relativa de cada nota y contador de palabras por tarjeta. El botón **+ Nueva nota** se encuentra en la esquina inferior derecha.
+
+![Pantalla principal](screenshots/home_page.jpg)
+
+---
+
+### Editor de nota
+Pantalla de edición con el título de la nota, el contenido editable y la barra inferior que muestra en tiempo real el conteo de **palabras**, **caracteres** y la **fecha/hora del último guardado**.
+
+![Editor de nota](screenshots/note_editor.jpg)
 
 ---
 
